@@ -1,4 +1,5 @@
 import { objectify } from 'radash';
+import { Path } from './path';
 
 export class PermissionScope {
   constructor(public readonly pattern: string) {}
@@ -8,6 +9,10 @@ export class PermissionScope {
       .split('/')
       .filter((patternPart) => patternPart.startsWith(':'))
       .map((patternPart) => patternPart.substring(1));
+  }
+
+  get simple(): string {
+    return Path.simple(this.pattern);
   }
 
   fill(parameters: Record<string, string>): ScopeAssignment {

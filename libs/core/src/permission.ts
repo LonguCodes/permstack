@@ -1,5 +1,4 @@
-import { PermissionScope, ScopeAssignment } from './permission-scope';
-import { Actor } from './actor';
+import { ScopeAssignment } from './permission-scope';
 
 export class Permission {
   constructor(
@@ -24,26 +23,3 @@ export class Permission {
   }
 }
 
-export class PermissionManager {
-  constructor(public readonly scopes: ReadonlyArray<PermissionScope> = []) {}
-
-  public parsePermission(permString: string) {
-    const [scopesString, action] = permString.split(';');
-    if (scopesString === '*') return new Permission([], action);
-    const scopeStrings = scopesString.split(',');
-
-    const scopes = scopeStrings.map((scopeString) =>
-      this.scopes.find((scope) => scope.match(scopeString)).parse(scopeString),
-    );
-
-    return new Permission(scopes, action);
-  }
-
-  public parseActor(perms: string[]) {
-    const actor = new Actor();
-
-    actor.permissions = perms.map((perm) => this.parsePermission(perm));
-
-    return actor;
-  }
-}

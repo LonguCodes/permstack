@@ -18,20 +18,3 @@ async function bootstrap() {
 }
 
 void bootstrap();
-
-// import { PermissionManager, PermissionScope } from '@permstack/core';
-//
-// const scopes = [
-//   new PermissionScope('company/:companyId'),
-//   new PermissionScope('company/:companyId/branch/:branchId'),
-//   new PermissionScope('bank/:bankId'),
-// ];
-//
-// const manager = new PermissionManager(scopes);
-//
-// const actor = manager.parseActor([
-//   'company/<123>;order/create',
-//   // 'company/<123>;*',
-//   // 'company/<*>;order/create',
-// ]);
-// console.log(actor.can('order/create', ['company/<123>/branch/<123>']));

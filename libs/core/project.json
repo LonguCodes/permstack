@@ -17,16 +17,36 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/core",
+        "outputPath": "dist/permstack/config",
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "tsConfig": "libs/core/tsconfig.lib.json",
         "packageJson": "libs/core/package.json",
         "main": "libs/core/src/index.ts",
         "assets": ["libs/core/*.md"]
       }
     },
-    "nx-release-publish": {
+    "publish": {
+      "executor": "@longucodes/nx-package-builder:build-and-publish",
       "options": {
-        "packageRoot": "dist/{projectRoot}"
+        "publishCli": "yarn",
+        "publishArgs": [
+          {
+            "name": "access",
+            "value": "public"
+          },
+          {
+            "name": "no-git-tag-version"
+          },
+          {
+            "name": "no-commit-hooks"
+          }
+        ]
+      }
+    },
+    "ci": {
+      "executor": "@longucodes/nx-package-builder:ci",
+      "options": {
+        "noCiMessage": "[skip ci]"
       }
     }
   }
