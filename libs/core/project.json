@@ -13,6 +13,7 @@
   },
   "tags": [],
   "targets": {
+
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],

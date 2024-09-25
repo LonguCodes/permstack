@@ -2,7 +2,7 @@ import { ScopeAssignment } from './permission-scope';
 
 export class Permission {
   constructor(
-    public readonly scopes: ReadonlyArray<ScopeAssignment>,
+    public readonly scopes: ScopeAssignment[],
     public readonly action: string,
   ) {}
 
@@ -18,7 +18,7 @@ export class Permission {
 
   private get actionRegex() {
     return new RegExp(
-      '^' + this.action.replace(/\*/g, '[^/]+').replace(/\*\*/g, '.+') + '$',
+      '^' + this.action.replace(/\*\*/g, '.+').replace(/\*/g, '[^/]+') + '$',
     );
   }
 }
