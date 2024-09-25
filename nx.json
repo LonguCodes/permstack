@@ -35,11 +35,10 @@
       }
     },
     {
-      "plugin": "@nx/jest/plugin",
+      "plugin": "@nx/vite/plugin",
       "options": {
-        "targetName": "test"
-      },
-      "exclude": ["api-e2e/**/*"]
+        "testTargetName": "test"
+      }
     }
   ],
   "release": {
