@@ -1,5 +1,5 @@
 import { objectify } from 'radash';
-import { Path } from './path';
+import { ContextPath } from './context-path';
 
 export class PermissionScope {
   constructor(public readonly pattern: string) {}
@@ -12,7 +12,7 @@ export class PermissionScope {
   }
 
   get simple(): string {
-    return Path.simple(this.pattern);
+    return ContextPath.simple(this.pattern);
   }
 
   fill(parameters: Record<string, string>): ScopeAssignment {

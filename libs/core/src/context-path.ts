@@ -1,4 +1,4 @@
-export class Path {
+export class ContextPath {
   static simple(pathString: string): string {
     let res = '';
     let i = 0,

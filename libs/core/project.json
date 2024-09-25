@@ -18,7 +18,6 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/permstack/config",
-        "buildableProjectDepsInPackageJsonType": "dependencies",
         "tsConfig": "libs/core/tsconfig.lib.json",
         "packageJson": "libs/core/package.json",
         "main": "libs/core/src/index.ts",

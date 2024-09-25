@@ -1,7 +1,7 @@
 import { PermissionScope } from './permission-scope';
 import { Actor } from './actor';
 import { Permission } from './permission';
-import { Path } from './path';
+import { ContextPath } from './context-path';
 
 export class PermissionManager {
   private readonly scopeMap: Map<string, PermissionScope> = new Map<
@@ -22,7 +22,7 @@ export class PermissionManager {
     const scopeStrings = scopesString.split(',');
 
     const scopes = scopeStrings.map((scopeString) =>
-      this.scopeMap.get(Path.simple(scopeString))?.parse(scopeString),
+      this.scopeMap.get(ContextPath.simple(scopeString))?.parse(scopeString),
     );
 
     return new Permission(scopes, action);
